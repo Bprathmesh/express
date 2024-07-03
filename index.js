@@ -54,7 +54,14 @@ app.put('/courses/:id', (req, res) => {
     res.json(course);
 });
 
+app.delete('/courses/:id', (req, res) => {
+    const course = courses.find(c => c.id === parseInt(req.params.id));
+    if (!course) return res.status(404).send('Course not found');
 
+    const index = courses.indexOf(course);
+    courses.splice(index, 1);
+    res.json(course);
+});
 //added functionality
 
 app.listen(3000, () => {
