@@ -62,6 +62,7 @@ app.delete('/courses/:id', (req, res) => {
     courses.splice(index, 1);
     res.json(course);
 });
+//added functionality
 
 app.listen(3000, () => {
     console.log("Server started on http://localhost:3000");
